@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 생성자 기반 account를 생성해서 아래 넣어주는게 DI(의존성 주입)-->
+    <bean id="account" class="com.ohgiraffers.common.PersonalAccount">
+        <constructor-arg index="0" value="20"/>
+        <constructor-arg index="1" value="110-234-567890"/>
+    </bean>
+    <!-- setter 기반 빈으로 미리 생성해 new를 이용하지 않는 방식 IOC (제어의 역전) -->
+    <bean id="member" class="com.ohgiraffers.common.MemberDTO">
+        <property name="seq" value="1"/>
+        <property name="name" value="홍길동"/>
+        <property name="phone" value="010-2323-3333"/>
+        <property name="email" value="hong@gmail.con"/>
+        <property name="personalAccount" ref="account"/>
+    </bean>
+
+</beans>
