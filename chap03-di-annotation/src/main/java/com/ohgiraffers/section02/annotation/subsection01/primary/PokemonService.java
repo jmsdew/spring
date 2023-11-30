@@ -9,7 +9,7 @@ public class PokemonService {
 
     private Pokemon pokemon;
 
-    @Autowired
+    @Autowired  // 프라이머리 어노테이션 매칭
     public PokemonService(Pokemon pokemon) {
         this.pokemon = pokemon;
     }

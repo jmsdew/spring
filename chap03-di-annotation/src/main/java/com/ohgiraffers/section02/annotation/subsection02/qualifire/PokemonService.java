@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class PokemonService {
 
     @Autowired
-    @Qualifier("pikachu")           // 빈은 소문자로 시작
+    @Qualifier("pikachu")           // 빈은 소문자로 시작   퀄리파이어로 입력 받은 값 매칭
     private Pokemon pokemon;
 
 
