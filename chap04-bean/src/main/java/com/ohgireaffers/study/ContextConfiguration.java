@@ -1,23 +1,22 @@
-package com.ohgireaffers.section02.initdestroy.subsection02.annotation;
+package com.ohgireaffers.study;
 
 import com.ohgireaffers.common.Beverage;
 import com.ohgireaffers.common.Bread;
 import com.ohgireaffers.common.Product;
 import com.ohgireaffers.common.ShoppingCart;
+import com.ohgireaffers.section02.initdestroy.subsection01.java.Owner;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import java.util.Date;
 
 @Configuration
- @ComponentScan("com.ohgireaffers.section02.initdestroy.subsection02.annotation")                  // 해당 컴포넌트의 범위 지정
 public class ContextConfiguration {
 
     @Bean
     public Product carpBread(){
-        return new Bread("붕어빵", 1000, new Date());
+        return new Bread("붕어빵",1000, new Date());
     }
 
     @Bean
@@ -31,9 +30,14 @@ public class ContextConfiguration {
     }
 
     @Bean
-    @Scope("prototype")
+    @Scope("singleton")        // 스코프에 싱글톤을 써 주면 싱글톤 패턴
     public ShoppingCart cart(){
         return new ShoppingCart();
+    }
+
+    @Bean(initMethod = "openShop", destroyMethod = "closeShop")
+    public Owner owner(){
+        return new Owner();
     }
 
 }
