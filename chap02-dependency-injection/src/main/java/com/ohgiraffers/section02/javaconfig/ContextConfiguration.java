@@ -15,7 +15,7 @@ public class ContextConfiguration {
     }
 
     @Bean
-    public MemberDTO memberGenerator(){
+    public MemberDTO memberGenerator(){    // 빌더 패턴
         MemberDTO member = MemberDTO.builder()
                 .seq(30)
                 .email("hong23@gmail.com")

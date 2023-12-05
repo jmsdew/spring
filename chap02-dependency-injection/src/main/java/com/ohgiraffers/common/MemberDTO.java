@@ -9,7 +9,7 @@ public class MemberDTO {
     private String name;
     private String phone;
     private String email;
-    private Account personalAccount;
+    private Account personalAccount;     //  개인 계좌
 
     public MemberDTO() {
     }
